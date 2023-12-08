@@ -1,0 +1,2 @@
+rootProject.name='Meal Portion Tracker'
+include ':app'

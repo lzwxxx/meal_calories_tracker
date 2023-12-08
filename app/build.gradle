@@ -1,0 +1,128 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.jetpackcomposeplayground"
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerVersion "${versions.kotlinCompilerVersion}"
+        kotlinCompilerExtensionVersion "${versions.compose}"
+
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/AL2.0', 'META-INF/LGPL2.1']
+        }
+    }
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/AL2.0', 'META-INF/LGPL2.1']
+        }
+    }
+
+// Added to avoid this error -
+    // Execution failed for task ':app:mergeDebugAndroidTestJavaResource'.
+    // > A failure occurred while executing com.android.build.gradle.internal.tasks.MergeJavaResWorkAction
+    // > 2 files found with path 'META-INF/AL2.0' from inputs:
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin
+    implementation deps.kotlinStdLib
+
+    // Support Libraries
+    implementation deps.support.appCompat
+    implementation deps.support.ktx
+    implementation deps.support.ktxViewModel
+    implementation deps.support.ktxLiveData
+    implementation deps.support.lifecycleExtensions
+
+    // CardView
+    implementation deps.cardView
+
+    // Constraint Layout
+    implementation deps.constraintLayout
+
+    // Coroutine
+    implementation deps.coroutine.core
+
+    // Compose
+    implementation deps.compose.activityCompose
+    implementation deps.compose.composeRuntime
+    implementation deps.compose.constraintLayout
+    implementation deps.compose.composeNavigation
+    implementation deps.compose.core
+    implementation deps.compose.foundation
+    implementation deps.compose.tooling
+    implementation deps.compose.layout
+    implementation deps.compose.material
+    implementation deps.compose.savedInstanceState
+    implementation deps.compose.uiLiveData
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.firebase:firebase-database:20.3.0'
+    implementation 'com.google.firebase:firebase-storage:20.3.0'
+    androidTestImplementation deps.compose.composeNavigationTest
+    androidTestImplementation deps.compose.uiTest
+
+    // Image loading
+    implementation deps.imageLoading.picasso
+    implementation deps.imageLoading.glideCore
+
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.junitImplementation
+
+    implementation "androidx.camera:camera-camera2:1.2.3"
+    implementation "androidx.camera:camera-lifecycle:1.2.3"
+    implementation 'androidx.camera:camera-view:1.4.0-alpha01'
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation "com.google.accompanist:accompanist-permissions:0.18.0"
+    implementation "io.coil-kt:coil-compose:2.2.2"
+
+    implementation 'org.pytorch:pytorch_android:2.1.0'
+    implementation 'org.pytorch:pytorch_android_torchvision:2.1.0'
+
+    implementation(platform("com.google.firebase:firebase-bom:30.0.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+
+    implementation("com.google.zxing:zxing-parent:3.5.2")
+    implementation ("com.google.zxing:core:3.3.0")
+
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
+
+}
+
+tasks.register("prepareKotlinBuildScriptModel"){}

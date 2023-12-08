@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1000744942450",
+    "project_id": "meal-tracker-9c159",
+    "storage_bucket": "meal-tracker-9c159.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000744942450:android:fe0c6525580d1679e63beb",
+        "android_client_info": {
+          "package_name": "com.example.jetpackcomposeplayground"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoaGM3tRMvhJLp4JDplD3ZQCWgFMVoFjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000744942450:android:ffbc43fb5e7a9c63e63beb",
+        "android_client_info": {
+          "package_name": "com.mobile.portiontracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoaGM3tRMvhJLp4JDplD3ZQCWgFMVoFjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
